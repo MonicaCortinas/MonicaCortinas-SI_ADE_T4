@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Tema 4: Fundamentos de Business Intelligence</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Mónica Cortiñas" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles\general.css" type="text/css" />
+    <link rel="stylesheet" href="styles\xaringan.css" type="text/css" />
+    <link rel="stylesheet" href="css\specific.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Tema 4: Fundamentos de Business Intelligence
+## ADE. 172821. Sistemas de Información
+### Mónica Cortiñas
+### Universidad Pública de Navarra
+### Curso 2019-2020 (actualizada: 11/02/2020)
+
+---
+
+
+
+
+
+
+
+
+layout: true
+
+&lt;div class="my-footer"&gt;&lt;span&gt;Sistemas de Información &lt;u&gt;Tema 4&lt;/u&gt;&lt;/span&gt;&lt;/div&gt;
+
+
+---
+class: center, middle, remark-inverse 
+
+# Estructura
+
+---
+class: middle
+
+# Secciones
+
+### 4.1 Introducción
+### 4.2 Organización de datos en un entorno tradicional
+### 4.3 El enfoque de base de datos relacional
+### 4.4 Business Intelligence
+### 4.5 Big Data e Inteligencia Artificial
+
+---
+class: middle
+
+## Objetivos de aprendizaje
+
+
+### 1.- Conocer los problemas de gestionar datos en un entorno tradicional y cómo se resuelven mediante la administración de bases de datos.
+
+### 2.- Conocer los principios de diseño de bases de datos.
+
+
+### 3.- Conocer los requisitos en la empresa para administrar los datos.
+
+### 4.- Entender los desafíos e implicaciones del Big Data.
+
+
+
+
+---
+
+class: center, middle, remark-inverse
+
+# 1. Introducción 
+
+---
+class: middle, center
+
+# Caso Apertura: Electrolux
+
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/jNEOKaFSFU4" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;small&gt;&lt;a href="https://www.youtube.com/watch?v=jNEOKaFSFU4 " target="_blank"&gt;Fuente del video: SalesForce&lt;/a&gt;&lt;/small&gt;
+
+
+                       
+
+
+
+---
+
+
+
+
+class: center, middle, remark-inverse
+
+# 2. Organización de datos en un entorno tradicional
+
+---
+class: middle
+
+# Sistema de información efectivo:
+
+### - Información precisa
+### - Información oportuna
+### - Información relevante
+
+.center[
+
+## No siempre se cumple: datos mal organizados
+]
+
+---
+class: middle, center
+
+# Organización de datos
+
+&gt;  ## Base de datos: colección de información sobre un determinado tema.
+
+&lt;img src="images/database.webp" width="95%" /&gt;
+
+
+---
+
+# Conceptos básicos en bases de datos
+
+&lt;img src="images/jerarquiadatos.jpg" width="95%" /&gt;
+
+---
+class: center
+# Bits vs Bytes
+
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/iar-CZgFk6s" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen&gt;&lt;/iframe&gt;
+
+Test en [Socrative](https://socrative.com/): ADE_SI_T4_1
+
+---
+# Problemas de la gestión tradicional de datos&lt;/h3&gt;   
+
+.pull-left[
+
+&lt;img src="images/tradicional.png" width="95%" /&gt;
+
+]
+.pull-right[
+- Ficheros mantenidos de manera independiente por departamentos
+- Redundancia de datos: datos duplicados
+- Inconsistencia de datos
+- Dependencia del software
+- Falta de flexibilidad, seguridad y posibilidades de intercambio
+
+]
+                             
+---
+
+
+
+
+class: center, middle, remark-inverse
+
+# 3. El enfoque de base de datos relacional
+
+
+---
+# Las bases de datos relacionales
+
+
+.left-column[
+
+&lt;img src="images/esquema.webp" width="100%" /&gt;
+
+]
+.right-column[
+
+&gt; **Base de datos relacional**: Colección de datos organizados para dar servicio a múltiples aplicaciones de manera eficiente al centralizar los datos y controlar los que son redundantes.
+
+&lt;br&gt;
+
+&gt; **Sistemas de Gestión de Base de Datos (DBMS)**: Software que permite a una organización centralizar los datos, administrarlos de manera eficiente y proveer acceso a los datos almacenados mediante programas de aplicación.
+
+]
+          
+---
+# Dos principios básicos
+
+### - Cada dato se introduzca una sola vez en la base de datos y se almacene en un solo lugar.
+
+### - Las vistas se puedan personalizar y adaptar a distintas situaciones y usuarios.
+
+---
+# Tablas
+
+### Recogen los datos sobre una entidad, e.g.:
+
+- Tabla de clientes
+- Tabla de proveedores
+- Tabla de pedidos
+- Tabla de facturas
+- Tabla de productos…
+
+### - Cada fila tiene una determinada entidad y todas sus características: "atributos"
+
+### - Cada fila se identifica con un código clave único
+
+---
+# Vistas y consultas
+
+### - Presentan la información con un determinado objetivo
+### - Pueden combinar información de varias tablas
+### - Se necesitan **claves primarias** y **claves secundarias** (ligan unas tablas con otras)
+### - e.g: precio de venta al público de las referencias de producto que se importan desde un determinado país.
+
+
+---
+# Ejemplos:
+
+
+.left-column[
+
+&lt;img src="images/esquema.webp" width="100%" /&gt;
+
+]
+.right-column[
+- Pedidos facturados a un determinado cliente.
+
+- Retribuciones de los trabajadores de las plantas de producción con más de 20 empleados.
+
+- Productos servidos por los proveedores de una región durante los últimos seis meses.
+
+]
+---
+# Bases de datos relacionales: Conceptos básicos
+
+| Representación lógica | Representación física | Modelo relacional |
+|-----------------------|-----------------------|-------------------|
+| Tabla                 | Archivo               | Relación          |
+| Fila                  | Registro              | Tupla             |
+| Columna               | Campo                 | Atributo          |
+
+
+- Relaciones entre tablas: Claves primarias y externas (foránea)
+---
+# Ejemplo: una BS relacional
+
+
+&lt;img src="images/relacional.jpg" width="100%" /&gt;
+
+---
+# Diseño de bases de datos relacionales
+
+|             |                                                       |
+|--------------| ----------------------------------------------------- |
+| Diseño conceptual (lógico)| modelo abstracto, perspectiva de negocio              | 
+| Diseño físico             | configuración de acceso en los distintos dispositivos |
+| Proceso de diseño         | identifica forma más eficiente agrupar elementos para satisfacer los requerimientos del negocio, necesidades de aplicación de los programas|
+
+
+---
+#  Diagramas de definición de datos y de entidad relación
+
+&gt; **Normalización**: Racionalización de agrupaciones complejas de datos para minimizar los elementos de datos redundantes y difíciles por su volumen
+
+&gt; **Reglas de identidad referencial**: comprobar que las relaciones entre tablas siguen reglas de coherencia
+
+&gt; **Diagrama entidad-relación**: Utilizado por programadores para documentación, muestra las relaciones entre entidades
+
+&lt;span style="color:red"&gt;**!**&lt;/span&gt; Si una empresa no consigue un buen modelo de datos, el sistema no será capaz de contribuir a las decisiones de negocio.
+
+---
+# Ejemplo Normalización
+
+&lt;img src="images/relacionnonorm.png" width="95%" /&gt;
+                   
+---
+# Ejemplo Normalización (II)
+
+&lt;img src="images/normaliz.png" width="95%" /&gt;
+
+---
+# Ejemplo Normalización (III)
+
+&lt;img src="images/entidadrelacion.png" width="95%" /&gt;
+
+---
+# Actividad : Normalización
+
+&lt;img src="images/relacionnonormII.png" width="95%" /&gt;
+
+---
+# Gestión de bases de datos
+
+### - Selección lenguaje programación: añadir, cambiar, borrar, recuperar datos de la base de datos. 
+
+### - Lengaje más extendido: **lenguaje de consulta estructurado** o **Structured Query Language (SQL)**
+
+### - Incorporado en muchas herramientas diferentes
+
+### - Selección herramientas de generación de informes y vistas y consultas: misma herramienta para la generación de informes o herramientas específicas (e.g. Crystal Reports)
+
+---
+# Otros tipos de bases de datos
+
+### - Bases de datos jerárquicas o de red
+
+   - Información en estructura jerárquica, registros en forma de estructura de árbol, en donde un nodo padre de información puede tener varios nodos hijo, y así sucesivamente.
+   - menos eficientes que las bases estructuradas
+
+### - Bases no estructuradas: bases de datos orientadas a objetos (imágenes, video, sonido...)
+      
+   - Más flexibles, entidades como objetos completos y pueden integrar datos de orígenes distintos
+
+   - En general, más lentas y menos eficientes que las relacionales
+---
+
+
+
+
+class: center, middle, remark-inverse
+
+# 4. Business Intelligence
+
+
+---
+#  Business Intelligence
+
+### - Uso de análisis de bases de datos para mejorar rendimiento empresarial y toma de decisiones
+
+### - Capacidades para analizar cantidades enormes de datos y acceder a información de múltiples sistemas
+
+### - Incluyen almacenes de datos, minería de datos y herramientas para acceder a las bases de datos internas a través de la web
+
+---
+#  Herramientas de Business Intelligence
+
+&lt;img src="images/businessintelligence.jpg" width="95%" /&gt;
+
+---
+# Almacenes de datos
+
+.pull-left[
+
+### - Almacén global de la información actual e histórica de interés para la toma de decisiones
+### - ETL (Extract, Transform, Load), Datawarehouse y DataMarts
+
+]
+
+.pull-right[
+&lt;iframe width="380" height="180" src="https://www.youtube.com/embed/vb0OAhQFoXY" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen&gt;&lt;/iframe&gt;
+
+ &lt;a style="margin:0; font-size:0.7em" href="https://b.socrative.com/teacher/#edit-quiz/26563176" target="_blank"&gt;Socrative.SI_ADE_T4_2 &lt;/a&gt;
+]
+
+
+---
+# Herramientas de Business Intelligence: Análisis
+
+###  - Consultas e informes: Excel, Crystal Reports, Dashboards...
+### - Análisis Multidimensional (OLAP): Visualización de datos de múltiples dimensiones, permite respuestas rápidas en línea y consultas ad-hoc
+### - Modelos estadísticos y de inteligencia artificial: Estadística descriptiva (cluster, MDA...) y predictiva (econometría, series temporales..., aprendizaje supervisado (predictivo, eg: redes neuronales) y no supervisado (descriptivo, eg: algoritmos genéticos) 
+
+              
+---
+
+
+
+
+class: center, middle, remark-inverse
+
+# 5. Big Data e Inteligencia Artificial
+
+
+---
+# ¿Qué es Big Data?
+
+.pull-left[
+&gt; Conjunto masivo de datos no estructurados o semi-estructurados de tráfico de Web, social media, sensores, etc…
+
+]
+
+.pull-right[
+
+&lt;img src="images/sexbigdata.png" width="80%" /&gt;
+
+&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="es" dir="ltr"&gt;Sobre &lt;a href="https://twitter.com/hashtag/bigdata?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#bigdata&lt;/a&gt; e investigación &lt;a href="https://t.co/pMpWnuReF3"&gt;pic.twitter.com/pMpWnuReF3&lt;/a&gt;&lt;/p&gt;
+]
+
+---
+
+# ¿Cuánto es grande?
+
+&lt;img src="images/gigasypetas.jpg" width="90%" /&gt;
+
+---
+# ¿Qué cabe en un Petabyte?
+
+.center[
+
+&lt;img src="images/peta.png" width="50%" /&gt;
+
+&lt;p style="margin:0; font-size:0.3em"&gt;&lt;em&gt;&lt;a href="https://mozy.ie/#slide-9" target="_blank"&gt;Fuente infografía: www.mozy.com&lt;/a&gt; &lt;/em&gt;&lt;/p&gt;
+
+]
+---
+# e.g. Fotografía agujero negro
+
+&lt;small&gt;[La primera foto de un agujero negro supuso 5 petabytes de datos y fue más fácil enviarlos por avión que por Internet](https://www.xataka.com/espacio/primera-foto-agujero-negro-supuso-5-petabytes-datos-fue-facil-enviarlos-avion-que-internet)&lt;/small&gt;
+
+.pull-left[
+
+&lt;img src="images/agujeronegro.jpeg" width="90%" /&gt;
+]
+
+
+.pull-right[
+
+&lt;img src="images/agujero.jpg" width="90%" /&gt;
+]
+
+
+---
+# ¿Solo tamaño?
+
+.pull-left[
+
+### - **V**olumen
+### - **V**elocidad
+### - **V**ariedad
+
+]
+
+.pull-right[
+
+&lt;img src="images/BigData3v.jpg" width="100%" /&gt;
+&lt;p style="margin:0; font-size:0.3em"&gt;&lt;em&gt;&lt;a href="http://www.datasciencecentral.com/forum/topics/the-3vs-that-define-big-data" target="_blank"&gt;Fuente imagen: Data Science Central&lt;/a&gt; &lt;/em&gt;&lt;/p&gt;
+]
+
+
+---
+# Inteligencia Artificial
+
+&gt; ### Capacidad de una máquina para aprender como respuesta a los estímulos y acomodar su comportamiento a ese aprendizaje.
+
+.pull-left[
+
+ - AI en Business Intelligence: algoritmos y técnicas de análisis y predicciones a partir de grandes volúmenes de datos de información corporativa.
+
+]
+
+.pull-right[
+
+&lt;img src="images/gans.png" width="70%" /&gt;
+]
+
+
+---
+# Aplicaciones AI en mundo corporativo
+
+### - Selección de recursos humanos
+### - Predicción de riesgo de abandono de clientes
+### - Predicción de la probabilidad de compra
+### - Clasificación del email…
+
+---
+# Herramientas más importantes para AI y Big Data:
+
+### - Lenguajes de programación: Python y R con RStudio
+### - Plataformas distribuidas: Apache Spark, Apache Hadoop
+### - Plataformas de trabajo: Jupyter, Anaconda
+### - Algoritmos de libre uso: BERT y otros, OpenAI
+
+
+---
+
+class: middle
+
+# Secciones
+
+### 4.1 Introducción
+### 4.2 Organización de datos en un entorno tradicional
+### 4.3 El enfoque de base de datos relacional
+### 4.4 Business Intelligence
+### 4.5 Big Data e Inteligencia Artificial
+
+---
+
+
+
+class: title-slide-final, middle
+
+background-image: url("images/logoblanco.png")
+background-size: 100px
+background-position: 90% 5%
+
+# Final del tema
+
+&lt;a href="https://b.socrative.com/teacher/" target="_blank"&gt;
+  &lt;button class="btn btn-final"&gt;
+    &lt;span class="buttoninner"&gt;&lt;i class="fas fa-question-circle"&gt;&lt;/i&gt; Test en Socrative&lt;/a&gt; &lt;/span&gt;
+  &lt;/button&gt;
+&lt;/a&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

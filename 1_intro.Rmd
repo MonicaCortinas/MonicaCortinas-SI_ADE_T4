@@ -1,0 +1,20 @@
+
+---
+
+class: center, middle, remark-inverse
+
+# 1. Introducción 
+
+---
+class: middle, center
+
+# Caso Apertura: Electrolux
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jNEOKaFSFU4" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+
+<small><a href="https://www.youtube.com/watch?v=jNEOKaFSFU4 " target="_blank">Fuente del video: SalesForce</a></small>
+
+
+                       
+
+
